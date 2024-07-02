@@ -1,0 +1,17 @@
+---
+_schema-version: '3.1'
+ID: ollama
+version: 1.0.0
+description: "Deploy Ollama to Cloud Foundry"
+parameters:
+  enable-parallel-deployments: true
+modules:
+  - name: ollama
+    type: application
+    parameters:
+      memory: 1024MB
+      disk-quota: 4096MB
+      docker:
+        image: ollama/ollama 
+    build-parameters: #only required for mta.yaml
+        no-source: true

@@ -1,0 +1,25 @@
+@serviceUrl = https://yourdomain.cfapps.yourregion.hana.ondemand.com
+
+### Health Check
+GET {{serviceUrl}}
+
+### Get Models
+GET {{serviceUrl}}/api/tags
+
+### Pull Models
+POST {{serviceUrl}}/api/pull
+Content-Type: application/json
+
+{
+    "name": "gemma:2b"
+}
+
+### Post Completion
+POST {{serviceUrl}}/api/generate
+Content-Type: application/json
+
+{
+    "model": "gemma:2b",
+    "prompt": "Where is the capital of Japan",
+    "stream": false
+}
